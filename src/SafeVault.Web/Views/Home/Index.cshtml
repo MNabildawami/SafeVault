@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"] = "Home";
+}
+<section class="hero">
+    <p class="eyebrow">SECURITY-FIRST DEMO</p>
+    <h1>Keep private notes private.</h1>
+    <p class="lead">SafeVault demonstrates secure input validation, authenticated access, owner-scoped data, and protected API endpoints using ASP.NET Core.</p>
+    <div class="actions">
+        @if (User.Identity?.IsAuthenticated == true)
+        {
+            <a class="button primary" asp-controller="Vault" asp-action="Index">Open my vault</a>
+        }
+        else
+        {
+            <a class="button primary" asp-controller="Account" asp-action="Register">Get started</a>
+            <a class="button secondary" asp-controller="Account" asp-action="Login">Sign in</a>
+        }
+    </div>
+</section>
+<section class="feature-grid" aria-label="Security controls">
+    <article class="feature-card"><span class="feature-number">01</span><h2>Validated input</h2><p>Data annotations and server-side checks limit the size and shape of user-supplied values.</p></article>
+    <article class="feature-card"><span class="feature-number">02</span><h2>Safe data access</h2><p>EF Core LINQ queries parameterize inputs, while owner filters keep each user's notes private.</p></article>
+    <article class="feature-card"><span class="feature-number">03</span><h2>Layered protection</h2><p>Identity, role authorization, anti-forgery protection, JWT validation, and security headers work together.</p></article>
+</section>
+<div class="callout"><strong>Learning note:</strong> This sample is a secure-coding demonstration, not a substitute for a production security review.</div>

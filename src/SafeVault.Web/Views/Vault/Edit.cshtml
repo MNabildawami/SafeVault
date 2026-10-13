@@ -1,0 +1,15 @@
+@model VaultNoteInputModel
+@{
+    ViewData["Title"] = "Edit note";
+    var routeId = Context.Request.RouteValues["id"];
+}
+<section class="form-page">
+    <p class="eyebrow">PRIVATE NOTE</p>
+    <h1>Edit a note</h1>
+    <form asp-action="Edit" asp-route-id="@routeId" method="post" class="form-stack">
+        <div asp-validation-summary="ModelOnly" class="validation-summary" role="alert"></div>
+        <div class="form-field"><label asp-for="Title"></label><input asp-for="Title" maxlength="120" required /><span asp-validation-for="Title" class="field-error"></span></div>
+        <div class="form-field"><label asp-for="Content"></label><textarea asp-for="Content" rows="8" maxlength="4000" required></textarea><span asp-validation-for="Content" class="field-error"></span></div>
+        <div class="actions"><button class="button primary" type="submit">Save changes</button><a class="button secondary" asp-action="Index">Cancel</a></div>
+    </form>
+</section>

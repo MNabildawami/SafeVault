@@ -1,0 +1,25 @@
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Sign in";
+}
+<section class="auth-panel">
+    <p class="eyebrow">WELCOME BACK</p>
+    <h1>Sign in to SafeVault</h1>
+    <form asp-controller="Account" asp-action="Login" method="post" class="form-stack">
+        <input asp-for="ReturnUrl" type="hidden" />
+        <div asp-validation-summary="ModelOnly" class="validation-summary" role="alert"></div>
+        <div class="form-field">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" autocomplete="username" required />
+            <span asp-validation-for="Email" class="field-error"></span>
+        </div>
+        <div class="form-field">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" autocomplete="current-password" required />
+            <span asp-validation-for="Password" class="field-error"></span>
+        </div>
+        <label class="checkbox-field"><input asp-for="RememberMe" /> Remember me on this device</label>
+        <button class="button primary full-width" type="submit">Sign in</button>
+    </form>
+    <p class="form-footer">New to SafeVault? <a asp-action="Register">Create an account</a>.</p>
+</section>

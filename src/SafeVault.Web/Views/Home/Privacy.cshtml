@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "Privacy";
+}
+<section class="page-heading">
+    <p class="eyebrow">DATA HANDLING</p>
+    <h1>Privacy and security</h1>
+    <p>SafeVault stores note titles and contents in a local SQLite database for this learning project. Access is restricted to the signed-in owner.</p>
+</section>
+<div class="panel">
+    <h2>Security controls in this sample</h2>
+    <ul class="check-list">
+        <li>Passwords are handled by ASP.NET Identity's password hasher, not stored as plaintext.</li>
+        <li>Cookie-authenticated POST forms use anti-forgery validation.</li>
+        <li>Razor's normal text rendering encodes user content; the application does not use <code>Html.Raw</code> for notes.</li>
+        <li>API requests use short-lived signed JWTs with issuer, audience, signature, and lifetime validation.</li>
+        <li>Secrets should be supplied through environment variables or user-secrets, never committed to Git.</li>
+    </ul>
+</div>

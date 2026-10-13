@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SafeVault</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a class="brand" asp-controller="Home" asp-action="Index">SafeVault</a>
+            <nav aria-label="Main navigation">
+                <a asp-controller="Home" asp-action="Privacy">Privacy</a>
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <a asp-controller="Vault" asp-action="Index">My vault</a>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-controller="Admin" asp-action="Index">Admin</a>
+                    }
+                    <span class="signed-in">@User.Identity.Name</span>
+                    <form class="nav-form" asp-controller="Account" asp-action="Logout" method="post">
+                        <button class="link-button" type="submit">Sign out</button>
+                    </form>
+                }
+                else
+                {
+                    <a asp-controller="Account" asp-action="Login">Sign in</a>
+                    <a class="nav-cta" asp-controller="Account" asp-action="Register">Create account</a>
+                }
+            </nav>
+        </div>
+    </header>
+    <main class="container main-content">
+        @if (TempData["StatusMessage"] is string statusMessage)
+        {
+            <div class="notice success" role="status">@statusMessage</div>
+        }
+        @RenderBody()
+    </main>
+    <footer class="site-footer">
+        <div class="container">SafeVault · Security-focused ASP.NET Core learning project</div>
+    </footer>
+</body>
+</html>

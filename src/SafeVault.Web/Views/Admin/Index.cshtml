@@ -1,0 +1,14 @@
+@model AdminDashboardViewModel
+@{
+    ViewData["Title"] = "Admin dashboard";
+}
+<section class="page-heading">
+    <p class="eyebrow">RESTRICTED AREA</p>
+    <h1>Admin dashboard</h1>
+    <p>This page is protected by the <code>CanViewAdminDashboard</code> policy, which requires the Admin role.</p>
+</section>
+<div class="stats-grid">
+    <article class="stat-card"><span class="stat-label">Registered users</span><strong>@Model.UserCount</strong></article>
+    <article class="stat-card"><span class="stat-label">Stored notes</span><strong>@Model.NoteCount</strong></article>
+</div>
+<div class="callout">This demo shows aggregate counts only; it does not expose user passwords, email lists, or note content to administrators.</div>

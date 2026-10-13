@@ -1,0 +1,24 @@
+\
+# Build output
+bin/
+obj/
+.vs/
+TestResults/
+*.user
+*.suo
+
+# Local databases and SQLite sidecar files
+*.db
+*.db-shm
+*.db-wal
+
+# Local secrets / environment files
+.env
+.env.*
+!.env.example
+secrets.json
+appsettings.*.local.json
+
+# OS/editor files
+.DS_Store
+Thumbs.db
